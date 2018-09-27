@@ -1,14 +1,25 @@
 #include <iostream>
 
+struct Test
+{
+    Test(int p_val) : val(p_val)
+    {
+        std::cout << "Test c-tor: " << p_val;
+    }
+
+    int val;
+};
+
 class Foo
 {
 public:
-    Foo(): m_a(0){
-        std::cout << "a:" << m_a << " b:" << m_b << std::endl;
+    Foo(): m_a(0)
+    {
+        std::cout << "a:" << m_a.val << " b:" << m_b << std::endl;
         m_b = 3;
     }
 private:
-    int m_a{9};
+    Test m_a{9};
     int m_b = 10;
 };
 
