@@ -1,4 +1,8 @@
-target=$(MAKECMDGOALS)
+TARGET = $(MAKECMDGOALS)
 
-target:target.cpp
-	g++ -o $<   >  $@ -std=c++17
+# g++ compile flags
+CXXFLAGS += -std=c++17
+
+$(TARGET):$(TARGET).o
+	$(CXX) $^ -o $@
+	@./$(TARGET) # after compile, run the program
