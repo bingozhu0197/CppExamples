@@ -16,5 +16,5 @@ class reverse
 };
 }
 
-reverse reversed;
+inline reverse reversed;
 }
