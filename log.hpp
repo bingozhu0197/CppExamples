@@ -1,20 +1,26 @@
 #include <iostream>
 #include <sstream>
 
+//This version will automatically add "endline" after string
 class LogStream
 {
 public:
-    friend std::istream& operator >> (std::istream& p_is,  LogStream& p_log)
+    template <typename T>
+    LogStream& operator << (const T& p_value)
     {
-        return p_is >> p_log.m_logBuffer;
+         std::cout << p_value;
+        return *this;
     }
 
     ~LogStream()
     {
-        std::cout << m_logBuffer << std::endl;
+        std::cout << std::endl;
     }
-private:
-    std::stringstream m_logBuffer;
 };
 
-#define Log std::cout << __FUNCTION__ << "() " 
+#define Log  LogStream()
+
+
+
+//simplest version to add function name
+//#define Log std::cout << __FUNCTION__ << "() " 

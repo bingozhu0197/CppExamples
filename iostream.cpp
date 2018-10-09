@@ -1,7 +1,7 @@
 #include <iostream>
 #include <String>
 #include "Log.hpp"
-
+//#define Log std::cout << __FUNCTION__ << "() " 
 
 class OverrideInOutStream
 {
@@ -29,11 +29,13 @@ std::istream& operator >>(std::istream& p_is, OverrideInOutStream& p_overrideInO
 
 void testInputOutputOverride()
 {
-    OverrideInOutStream p_io;
-    Log << p_io;
+    OverrideInOutStream l_io;
+    Log << l_io;
+    LogStream()<< "hwllo";
+    //Log << l_io;
 
-    p_io << "input with input stream";
-    Log << p_io;
+    l_io << "input with input stream";
+    //Log << l_io;
 }
 
 int main(int argc, char const *argv[])

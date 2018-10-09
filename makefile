@@ -1,7 +1,7 @@
 TARGET = $(MAKECMDGOALS)
 
 # g++ compile flags
-CXXFLAGS += -std=c++14
+CXXFLAGS += -std=c++17
 
 $(TARGET):$(TARGET).o
 	$(CXX) $^ -o $@
